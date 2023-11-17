@@ -1,0 +1,31 @@
+<h4>Single Interpolation</h4>
+<p>{{title}}</p>
+<h4>Property Binding + Event Binding</h4>
+<button [disabled]="disabledVal" (click)="buttonClick()">ADD</button>
+<h4>Two Way Binding Without Using ngModel</h4>
+<input type="text" class="form-control" (input)="inputVal($event)">
+<p>{{inputtextVal}}</p>
+<h4>Two Way Binding Using ngModel</h4>
+<input type="text" class="form-control" [(ngModel)]="newInput">
+<p>{{newInput}}</p>
+<h4>Structural Directives</h4>
+<p *ngIf="strDiv; else elseDiv">Content of Structural Directives</p>
+<ng-template #elseDiv> 
+ <p> Else content</p>
+</ng-template>
+<h4>Alternative way of implementing if condition</h4>
+@if (strDiv) {
+  <p>Only visible if 'someCondition' is true</p>
+}
+<h4>Inner Text Propert</h4>
+<p [innerText]="innerText"></p>
+<h4>Attribute Directives using ngStyle / ngClass</h4>
+<p [ngStyle]="{backgroundColor:getStyle()}"[ngClass]="{online:attDirContent==='online'}">Server is {{getServerStatus()}}</p>
+<p [ngStyle]="{backgroundColor:getStyle()}" [ngClass]="{online:attDirContent==='online'}">Server is {{getServerStatus()}}</p>
+<h4>ngFor</h4>
+<p *ngFor="let server of servers; let i=index">{{server}}</p>
+<h4>Aletnative for ngFor example need to try this </h4>
+<!-- @for (item of items; track item.id) {
+  <li>{{ item.title }}</li>
+} -->
+
